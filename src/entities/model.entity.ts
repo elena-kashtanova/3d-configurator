@@ -34,13 +34,15 @@ class ModelEntity extends BaseEntity {
 
     @Column('float', {
         array: true,
+        nullable: true,
     })
-    public uv: number[];
+    public uv: number[] | null;
 
     @Column('float', {
         array: true,
+        nullable: true,
     })
-    public normal: number[];
+    public normal: number[] | null;
 
     @Column('integer', {
         array: true,
