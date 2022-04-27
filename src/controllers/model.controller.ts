@@ -13,7 +13,10 @@ class ModelController {
 
     public getAllModels = async (req: Request, res: Response): Promise<Response> => {
         const models = await this.modelService.getAllModels();
-        return res.status(StatusCodes.OK).json(models);
+        const list = models.map((model) => {
+            return { id: model.id, name: model.name };
+        });
+        return res.status(StatusCodes.OK).json(list);
     };
 
     public getModelById = async (req: Request, res: Response): Promise<Response> => {
