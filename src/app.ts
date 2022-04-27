@@ -3,6 +3,7 @@ import cors from 'cors';
 import configData from './config/config-data';
 import router from './routes';
 import { errorHandler } from './middleware/error-handler';
+import AppDataSource from './config/orm-config';
 
 const app = express();
 const { port, host } = configData.server;
@@ -14,6 +15,14 @@ app.use('/', router);
 app.use(errorHandler);
 
 (async () => {
+    try {
+        await AppDataSource.initialize();
+        console.log('Database initialized');
+    } catch (error) {
+        console.error(error);
+        return error;
+    }
+
     app.listen(port, host, () => {
         console.log(`Server listening at http://${host}:${port}`);
     });
