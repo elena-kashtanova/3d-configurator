@@ -1,5 +1,5 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
-import { ModelEntity } from '../entities/model.entity';
+import { ModelEntity } from '@entities/model.entity';
 
 export class Seed1650987574169 implements MigrationInterface {
     name = 'Seed1650987574169';

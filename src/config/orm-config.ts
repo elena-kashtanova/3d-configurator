@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { configData } from './config-data';
-import { ModelEntity } from '../entities/model.entity';
+import { configData } from '@config/config-data';
+import { ModelEntity } from '@entities/model.entity';
 
 const { host, port, username, password, database } = configData.database;
 

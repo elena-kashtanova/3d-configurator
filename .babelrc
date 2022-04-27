@@ -1,4 +1,24 @@
 {
-    "presets": ["@babel/preset-env", "@babel/preset-typescript"],
-    "plugins": [["@babel/plugin-proposal-decorators", { "legacy": true }]]
+    "presets": ["@babel/preset-typescript", "@babel/preset-env"],
+    "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        [
+            "module-resolver",
+            {
+                "root": ["./"],
+                "alias": {
+                    "@config": "./src/config",
+                    "@controllers": "./src/controllers",
+                    "@entities": "./src/entities",
+                    "@interfaces": "./src/interfaces",
+                    "@middleware": "./src/middleware",
+                    "@migrations": "./src/migrations",
+                    "@repositories": "./src/repositories",
+                    "@routes": "./src/routes",
+                    "@services": "./src/services",
+                    "@utils": "./src/utils"
+                }
+            }
+        ]
+    ]
 }
