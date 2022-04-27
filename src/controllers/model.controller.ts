@@ -20,12 +20,8 @@ class ModelController {
         const { id } = req.query;
         const modelId = id as string;
 
-        if (modelId) {
-            const model = await this.modelService.getModelById(modelId);
-            return res.status(StatusCodes.OK).json(model);
-        } else {
-            return res.status(StatusCodes.BAD_REQUEST).send('Invalid ID');
-        }
+        const model = await this.modelService.getModelById(modelId);
+        return res.status(StatusCodes.OK).json(model);
     }
 
     public async updateModel(req: Request, res: Response): Promise<Response> {
@@ -33,24 +29,16 @@ class ModelController {
         const { data } = req.body;
         const modelId = id as string;
 
-        if (modelId) {
-            const result = await this.modelService.updateModel(modelId, data);
-            return res.status(StatusCodes.OK).json(result);
-        } else {
-            return res.status(StatusCodes.BAD_REQUEST).send('Invalid ID');
-        }
+        const result = await this.modelService.updateModel(modelId, data);
+        return res.status(StatusCodes.OK).json(result);
     }
 
     public async deleteModel(req: Request, res: Response): Promise<Response> {
         const { id } = req.query;
         const modelId = id as string;
 
-        if (modelId) {
-            const result = await this.modelService.deleteModel(modelId);
-            return res.status(StatusCodes.OK).json(result);
-        } else {
-            return res.status(StatusCodes.BAD_REQUEST).send('Invalid ID');
-        }
+        const result = await this.modelService.deleteModel(modelId);
+        return res.status(StatusCodes.OK).json(result);
     }
 }
 

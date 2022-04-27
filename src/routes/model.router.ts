@@ -4,6 +4,7 @@ import ModelEntity from '../entities/model.entity';
 import ModelTypeORMRepository from '../repositories/model.repository';
 import ModelService from '../services/model.service';
 import ModelController from '../controllers/model.controller';
+import { isIdProvided } from '../middleware/validator';
 
 const modelRepo = new ModelTypeORMRepository(AppDataSource.getRepository(ModelEntity));
 const modelService = new ModelService(modelRepo);
@@ -12,8 +13,8 @@ const modelController = new ModelController(modelService);
 const modelRouter = Router();
 
 modelRouter.get('/', modelController.getAllModels);
-modelRouter.get('/:id', modelController.getModelById);
-modelRouter.put('/:id', modelController.updateModel);
-modelRouter.delete('/:id', modelController.deleteModel);
+modelRouter.get('/:id', isIdProvided, modelController.getModelById);
+modelRouter.put('/:id', isIdProvided, modelController.updateModel);
+modelRouter.delete('/:id', isIdProvided, modelController.deleteModel);
 
 export default modelRouter;
