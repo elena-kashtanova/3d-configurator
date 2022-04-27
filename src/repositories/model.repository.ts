@@ -10,19 +10,19 @@ class ModelTypeORMRepository implements IModelRepo<ModelEntity, UpdateResult, De
     }
 
     public getAll = async (): Promise<ModelEntity[]> => {
-        return await this.repo.createQueryBuilder('model').select().getMany();
+        return this.repo.createQueryBuilder('model').select().getMany();
     };
 
     public getById = async (id: number | string): Promise<ModelEntity | null> => {
-        return await this.repo.findOneBy({ id: id });
+        return this.repo.findOneBy({ id: id });
     };
 
-    public update = async (id: number | string, data: Partial<ModelEntity>): Promise<UpdateResult> => {
-        return await this.repo.update(id, data);
+    public update = async (id: number | string, data: ModelEntity): Promise<UpdateResult> => {
+        return this.repo.update(id, data);
     };
 
     public delete = async (id: number | string): Promise<DeleteResult> => {
-        return await this.repo.delete(id);
+        return this.repo.delete(id);
     };
 }
 
