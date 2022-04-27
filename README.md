@@ -1,10 +1,14 @@
 # 3D Configurator
 
 ## Launching the project
-1. Clone the repository to the local machine
-2. Run `npm install`
-3. Fill in info in dev.env file in the root folder: port and host for the server, name of the database etc. Remove 'dev' from the file's name.
-4. Run `npm start`
+
+The project uses PostgreSQL 14.0.
+
+1. Clone the repository to the local machine.
+2. Run `npm install`.
+3. Fill in info in dev.env file in the root folder: port and host for the server, name of the database from the etc. Remove 'dev' from the file's name.
+4. Run `npm start`. A database will be created automatically.
+5. To seed the database, run `npm run typeorm migration:run`.
 
 ## Requirements
 ### Backend Functionality

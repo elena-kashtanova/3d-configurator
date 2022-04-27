@@ -1,9 +1,10 @@
 import express from 'express';
 import cors from 'cors';
+import { createDatabase } from 'typeorm-extension';
 import { configData } from './config/config-data';
 import { router } from './routes';
 import { errorHandler } from './middleware/error-handler';
-import { AppDataSource } from './config/orm-config';
+import { AppDataSource, AppDataSourceOptions } from './config/orm-config';
 
 const app = express();
 const { port, host } = configData.server;
@@ -16,6 +17,8 @@ app.use(errorHandler);
 
 (async () => {
     try {
+        const options = AppDataSourceOptions;
+        await createDatabase({ ifNotExist: true, synchronize: true, options });
         await AppDataSource.initialize();
         console.log('Database initialized');
     } catch (error) {
