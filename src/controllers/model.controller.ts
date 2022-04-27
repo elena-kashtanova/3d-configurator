@@ -11,35 +11,29 @@ class ModelController {
         this.modelService = modelService;
     }
 
-    public async getAllModels(req: Request, res: Response): Promise<Response> {
+    public getAllModels = async (req: Request, res: Response): Promise<Response> => {
         const models = await this.modelService.getAllModels();
         return res.status(StatusCodes.OK).json(models);
-    }
+    };
 
-    public async getModelById(req: Request, res: Response): Promise<Response> {
-        const { id } = req.query;
-        const modelId = id as string;
-
-        const model = await this.modelService.getModelById(modelId);
+    public getModelById = async (req: Request, res: Response): Promise<Response> => {
+        const { id } = req.params;
+        const model = await this.modelService.getModelById(id);
         return res.status(StatusCodes.OK).json(model);
-    }
+    };
 
-    public async updateModel(req: Request, res: Response): Promise<Response> {
-        const { id } = req.query;
+    public updateModel = async (req: Request, res: Response): Promise<Response> => {
+        const { id } = req.params;
         const { data } = req.body;
-        const modelId = id as string;
-
-        const result = await this.modelService.updateModel(modelId, data);
+        const result = await this.modelService.updateModel(id, data);
         return res.status(StatusCodes.OK).json(result);
-    }
+    };
 
-    public async deleteModel(req: Request, res: Response): Promise<Response> {
-        const { id } = req.query;
-        const modelId = id as string;
-
-        const result = await this.modelService.deleteModel(modelId);
+    public deleteModel = async (req: Request, res: Response): Promise<Response> => {
+        const { id } = req.params;
+        const result = await this.modelService.deleteModel(id);
         return res.status(StatusCodes.OK).json(result);
-    }
+    };
 }
 
 export default ModelController;

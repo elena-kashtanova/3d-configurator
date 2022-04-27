@@ -7,15 +7,15 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
         this.modelRepo = repo;
     }
 
-    public async getAllModels(): Promise<ModelEntityType[]> {
+    public getAllModels = async (): Promise<ModelEntityType[]> => {
         return this.modelRepo.getAll();
-    }
+    };
 
-    public async getModelById(id: number | string): Promise<ModelEntityType | null> {
+    public getModelById = async (id: number | string): Promise<ModelEntityType | null> => {
         return this.modelRepo.getById(id);
-    }
+    };
 
-    public async updateModel(id: number | string, data: Partial<ModelEntityType>): Promise<UpdateResultType> {
+    public updateModel = async (id: number | string, data: Partial<ModelEntityType>): Promise<UpdateResultType> => {
         const model = await this.getModelById(id);
 
         if (!model) {
@@ -23,11 +23,11 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
         }
 
         return this.modelRepo.update(id, data);
-    }
+    };
 
-    public async deleteModel(id: number | string): Promise<DeleteResultType> {
+    public deleteModel = async (id: number | string): Promise<DeleteResultType> => {
         return this.modelRepo.delete(id);
-    }
+    };
 }
 
 export default ModelService;
