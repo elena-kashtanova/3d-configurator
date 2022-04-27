@@ -54,6 +54,8 @@ __________________________
 Created a repository interface and implemented a specific TypeORM repo. It's injected into service methods which are in turn are injected into a controller class.
 _______________
 Set up routes and added some very minimal validation. It would make sense to run some tests here and normally I would do that but I want to get back to working on 3D model. Some manual testing shows that everything seems to be working fine.
+_______________
+Created a seed migration and configured automatic database creation on initial launch.
 
 ### 3D Models
 #### Before reading the documentation
