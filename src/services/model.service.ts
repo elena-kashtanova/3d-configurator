@@ -1,5 +1,5 @@
 import { IModelRepo } from '@interfaces/model-repo.interface';
-
+import { getErrorMessage } from '@utils/getErrorMessage';
 class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
     private modelRepo: IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType>;
 
@@ -8,25 +8,45 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
     }
 
     public getAllModels = async (): Promise<ModelEntityType[]> => {
-        return this.modelRepo.getAll();
+        try {
+            return this.modelRepo.getAll();
+        } catch (error) {
+            const message = getErrorMessage(error);
+            throw new Error(message);
+        }
     };
 
     public getModelById = async (id: number | string): Promise<ModelEntityType | null> => {
-        return this.modelRepo.getById(id);
+        try {
+            return this.modelRepo.getById(id);
+        } catch (error) {
+            const message = getErrorMessage(error);
+            throw new Error(message);
+        }
     };
 
     public updateModel = async (id: number | string, data: ModelEntityType): Promise<UpdateResultType> => {
-        const model = await this.getModelById(id);
+        try {
+            const model = await this.getModelById(id);
 
-        if (!model) {
-            throw new Error("Model doesn't exist");
+            if (!model) {
+                throw new Error("Model doesn't exist");
+            }
+
+            return this.modelRepo.update(id, data);
+        } catch (error) {
+            const message = getErrorMessage(error);
+            throw new Error(message);
         }
-
-        return this.modelRepo.update(id, data);
     };
 
     public deleteModel = async (id: number | string): Promise<DeleteResultType> => {
-        return this.modelRepo.delete(id);
+        try {
+            return this.modelRepo.delete(id);
+        } catch (error) {
+            const message = getErrorMessage(error);
+            throw new Error(message);
+        }
     };
 }
 
