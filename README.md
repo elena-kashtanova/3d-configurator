@@ -1,4 +1,11 @@
 # 3D Configurator
+
+## Launching the project
+1. Clone the repository to the local machine
+2. Run `npm install`
+3. Fill in info in dev.env file in the root folder: port and host for the server, name of the database etc. Remove 'dev' from the file's name.
+4. Run `npm start`
+
 ## Requirements
 ### Backend Functionality
 - I can get a list of all 3D objects in the database
