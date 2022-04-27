@@ -1,6 +1,6 @@
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
-import { ModelEntity } from '@entities/model.entity';
-import { IModelRepo } from '@interfaces/model-repo.interface';
+import { ModelEntity } from '../entities/model.entity';
+import { IModelRepo } from '../interfaces/model-repo.interface';
 
 class ModelTypeORMRepository implements IModelRepo<ModelEntity, UpdateResult, DeleteResult> {
     private repo: Repository<ModelEntity>;

@@ -1,5 +1,5 @@
-import { IModelRepo } from '@interfaces/model-repo.interface';
-import { getErrorMessage } from '@utils/getErrorMessage';
+import { IModelRepo } from '../interfaces/model-repo.interface';
+import { getErrorMessage } from '../utils/getErrorMessage';
 class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
     private modelRepo: IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType>;
 

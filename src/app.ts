@@ -1,10 +1,9 @@
-import 'module-alias/register';
 import express from 'express';
 import cors from 'cors';
-import { configData } from '@config/config-data';
-import { router } from '@routes/index';
+import { configData } from './config/config-data';
+import { router } from './routes';
 import { errorHandler } from './middleware/error-handler';
-import { AppDataSource } from '@config/orm-config';
+import { AppDataSource } from './config/orm-config';
 
 const app = express();
 const { port, host } = configData.server;
