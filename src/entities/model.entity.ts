@@ -9,7 +9,7 @@ class ModelEntity extends BaseEntity {
     }
 
     @PrimaryGeneratedColumn()
-    public id: number;
+    public id: number | string;
 
     @Column()
     public color: string;

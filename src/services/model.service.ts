@@ -11,11 +11,11 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
         return this.modelRepo.getAll();
     }
 
-    public async getModelById(id: number): Promise<ModelEntityType | null> {
+    public async getModelById(id: number | string): Promise<ModelEntityType | null> {
         return this.modelRepo.getById(id);
     }
 
-    public async updateModel(id: number, data: Partial<ModelEntityType>): Promise<UpdateResultType> {
+    public async updateModel(id: number | string, data: Partial<ModelEntityType>): Promise<UpdateResultType> {
         const model = await this.getModelById(id);
 
         if (!model) {
@@ -25,7 +25,7 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
         return this.modelRepo.update(id, data);
     }
 
-    public async deleteModel(id: number): Promise<DeleteResultType> {
+    public async deleteModel(id: number | string): Promise<DeleteResultType> {
         return this.modelRepo.delete(id);
     }
 }

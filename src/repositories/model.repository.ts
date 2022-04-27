@@ -13,15 +13,15 @@ class ModelTypeORMRepository implements IModelRepo<ModelEntity, UpdateResult, De
         return await this.repo.createQueryBuilder('model').select().getMany();
     }
 
-    public async getById(id: number): Promise<ModelEntity | null> {
+    public async getById(id: number | string): Promise<ModelEntity | null> {
         return await this.repo.findOneBy({ id: id });
     }
 
-    public async update(id: number, data: Partial<ModelEntity>): Promise<UpdateResult> {
+    public async update(id: number | string, data: Partial<ModelEntity>): Promise<UpdateResult> {
         return await this.repo.update(id, data);
     }
 
-    public async delete(id: number): Promise<DeleteResult> {
+    public async delete(id: number | string): Promise<DeleteResult> {
         return await this.repo.delete(id);
     }
 }
