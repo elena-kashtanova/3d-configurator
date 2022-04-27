@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "nodemon ./src/app.ts",
-        "build": "babel ./src/app.ts --out-file build/bundle.js",
+        "build": "babel src --out-dir build --extensions .ts",
         "lint": "eslint . --ext .ts"
     },
     "author": "Elena Kashtanova",
@@ -24,6 +24,7 @@
     "devDependencies": {
         "@babel/cli": "7.17.6",
         "@babel/core": "7.17.9",
+        "@babel/plugin-proposal-decorators": "7.17.9",
         "@babel/preset-env": "7.16.11",
         "@babel/preset-typescript": "7.16.7",
         "@types/cors": "2.8.12",
