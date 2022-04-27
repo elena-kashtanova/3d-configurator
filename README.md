@@ -79,6 +79,12 @@ Posgres supports array data types so it can be used to store info about vertices
 So in this case, the server would expect to receive a JSON object with data which would have a color property and an array of positions.
 
 When loaded from database, a mesh can be created by assigning the array as `position` value with `BufferAttribute`.
+____________________________
+After playing around with primitives and geometries some more, I think I have an idea of how a model could be represented in a database. Each model should have an id, a name, so that it's identifiable. All models in three.js also have attributes of position, uv and normal, even those not created with BufferGeometry class. They are represented by TypedArrays and can be predictably divided into columns. They also have an `index` property which is necessary for the object to be properly displayed - otherwise sections may be missing. 
+
+Primitives also have a `parameters` property which contains data specific for each type. It can be saved as a JSON object.
+
+That way, if we load an object from the database on the client side, we can check its type, if it's a primitive - parse the parameters from JSON and use them to create a mesh. Using a primitive should make the model easier to edit. If the type is BufferGeometry, unknown or missing - we'll still be able to use attributes and BufferGeometry as a fallback.
 
 ## What Else Could Be Done
 - More properties for the 3D entity (normals, uvs etc)
@@ -87,3 +93,4 @@ When loaded from database, a mesh can be created by assigning the array as `posi
 - A more robust logger using something like Winston
 - API documentation with Swagger
 - Maybe some abstraction for services and routes would also be useful. If there were more modules - make interface more basic and extend them as needed for different modules.
+- Aliases instead of relative import paths
