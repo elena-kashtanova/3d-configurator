@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import configData from './config-data';
 import ModelEntity from '../entities/model.entity';
