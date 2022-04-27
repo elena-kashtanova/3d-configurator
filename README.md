@@ -87,10 +87,8 @@ Primitives also have a `parameters` property which contains data specific for ea
 That way, if we load an object from the database on the client side, we can check its type, if it's a primitive - parse the parameters from JSON and use them to create a mesh. Using a primitive should make the model easier to edit. If the type is BufferGeometry, unknown or missing - we'll still be able to use attributes and BufferGeometry as a fallback.
 
 ## What Else Could Be Done
-- More properties for the 3D entity (normals, uvs etc)
 - Unit tests
 - More specific validation checks for body data in accordance with business requirements
 - A more robust logger using something like Winston
 - API documentation with Swagger
-- Maybe some abstraction for services and routes would also be useful. If there were more modules - make interface more basic and extend them as needed for different modules.
-- Aliases instead of relative import paths
+- Maybe some abstraction for services and routes would also be useful. If there were more modules - make interface more basic and extend them as needed for different modules
