@@ -1,4 +1,4 @@
-import { IModelRepo } from '../interfaces/model-repo.interface';
+import { IModelRepo } from '@interfaces/model-repo.interface';
 
 class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
     private modelRepo: IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType>;
