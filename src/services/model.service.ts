@@ -15,7 +15,7 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
         return this.modelRepo.getById(id);
     };
 
-    public updateModel = async (id: number | string, data: Partial<ModelEntityType>): Promise<UpdateResultType> => {
+    public updateModel = async (id: number | string, data: ModelEntityType): Promise<UpdateResultType> => {
         const model = await this.getModelById(id);
 
         if (!model) {
