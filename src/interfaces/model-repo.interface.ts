@@ -5,4 +5,4 @@ interface IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType> {
     delete: (id: number | string) => Promise<DeleteResultType>;
 }
 
-export default IModelRepo;
+export { IModelRepo };

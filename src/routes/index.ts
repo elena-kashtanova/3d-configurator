@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import modelRouter from './model.router';
+import { modelRouter } from './model.router';
 
 const router = Router();
 
@@ -9,4 +9,4 @@ router.get('/', (req: Request, res: Response) => {
 });
 router.use('/models', modelRouter);
 
-export default router;
+export { router };

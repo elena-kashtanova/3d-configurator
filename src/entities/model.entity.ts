@@ -21,4 +21,4 @@ class ModelEntity extends BaseEntity {
     public positions: number[];
 }
 
-export default ModelEntity;
+export { ModelEntity };

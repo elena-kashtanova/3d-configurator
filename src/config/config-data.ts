@@ -14,4 +14,4 @@ const configData = {
     },
 };
 
-export default configData;
+export { configData };

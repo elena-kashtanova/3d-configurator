@@ -4,4 +4,4 @@ const logger = {
     },
 };
 
-export default logger;
+export { logger };

@@ -1,9 +1,9 @@
-import IModel from '../interfaces/model-repo.interface';
+import { IModelRepo } from '../interfaces/model-repo.interface';
 
 class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
-    private modelRepo: IModel<ModelEntityType, UpdateResultType, DeleteResultType>;
+    private modelRepo: IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType>;
 
-    constructor(repo: IModel<ModelEntityType, UpdateResultType, DeleteResultType>) {
+    constructor(repo: IModelRepo<ModelEntityType, UpdateResultType, DeleteResultType>) {
         this.modelRepo = repo;
     }
 
@@ -30,4 +30,4 @@ class ModelService<ModelEntityType, UpdateResultType, DeleteResultType> {
     };
 }
 
-export default ModelService;
+export { ModelService };

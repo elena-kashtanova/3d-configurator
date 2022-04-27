@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import { UpdateResult, DeleteResult } from 'typeorm';
-import ModelEntity from '../entities/model.entity';
-import ModelService from '../services/model.service';
+import { ModelEntity } from '../entities/model.entity';
+import { ModelService } from '../services/model.service';
 
 class ModelController {
     private modelService;
@@ -36,4 +36,4 @@ class ModelController {
     };
 }
 
-export default ModelController;
+export { ModelController };
