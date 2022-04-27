@@ -12,8 +12,9 @@ const AppDataSource = new DataSource({
     username: username,
     password: password,
     database: database,
-    synchronize: true,
+    synchronize: false,
     entities: [ModelEntity],
+    migrations: [`src/migrations/*.{js,ts}`],
 });
 
 export { AppDataSource };
