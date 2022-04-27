@@ -80,7 +80,7 @@ So in this case, the server would expect to receive a JSON object with data whic
 
 When loaded from database, a mesh can be created by assigning the array as `position` value with `BufferAttribute`.
 ____________________________
-After playing around with primitives and geometries some more, I think I have an idea of how a model could be represented in a database. Each model should have an id, a name, so that it's identifiable. All models in three.js also have attributes of position, uv and normal, even those not created with BufferGeometry class. They are represented by TypedArrays and can be predictably divided into columns. They also have an `index` property which is necessary for the object to be properly displayed - otherwise sections may be missing. 
+After playing around with primitives and geometries some more, I think I have an idea of how a model could be represented in a database. Each model should have an id, a name, so that it's identifiable. All models in three.js also have attributes of position, uv and normal, even those not created with BufferGeometry class. They are represented by TypedArrays and can be predictably divided into columns. They also have an `index` property which is sometimes required for the object to be properly displayed - otherwise sections may be missing. 
 
 Primitives also have a `parameters` property which contains data specific for each type. It can be saved as a JSON object.
 
