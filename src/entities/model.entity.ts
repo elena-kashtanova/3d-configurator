@@ -2,10 +2,11 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 class ModelEntity extends BaseEntity {
-    constructor(id: number, color: string) {
+    constructor(id: number, color: string, positions: number[]) {
         super();
         this.id = id;
         this.color = color;
+        this.positions = positions;
     }
 
     @PrimaryGeneratedColumn()
@@ -13,6 +14,11 @@ class ModelEntity extends BaseEntity {
 
     @Column()
     public color: string;
+
+    @Column('float', {
+        array: true,
+    })
+    public positions: number[];
 }
 
 export default ModelEntity;

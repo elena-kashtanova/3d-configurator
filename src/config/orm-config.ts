@@ -12,6 +12,7 @@ const AppDataSource = new DataSource({
     username: username,
     password: password,
     database: database,
+    synchronize: true,
     entities: [ModelEntity],
 });
 
