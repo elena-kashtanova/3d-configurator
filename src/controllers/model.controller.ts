@@ -27,7 +27,7 @@ class ModelController {
 
     public updateModel = async (req: Request, res: Response): Promise<Response> => {
         const { id } = req.params;
-        const { data } = req.body;
+        const data = req.body;
         const result = await this.modelService.updateModel(id, data);
         return res.status(StatusCodes.OK).json(result);
     };
